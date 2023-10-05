@@ -22,7 +22,7 @@ const Navbar = () => {
 					<FaAlignLeft />
 				</button>
 			</div>
-			<div>
+			<div className=''>
 				<Logo />
 				<h3 className='logo-text'>dashboard</h3>
 			</div>
