@@ -11,7 +11,7 @@ const Wrapper = styled.aside`
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: -1;
+    z-index: -10;
     opacity: 0;
     transition: var(--transition);
   }
