@@ -4,7 +4,7 @@ const Wrapper = styled.nav`
   height: var(--nav-height);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.1);
   .logo {
     display: flex;
@@ -71,7 +71,7 @@ const Wrapper = styled.nav`
     top: 0;
 
     .nav-center {
-      width: 90%;
+      width: auto;
     }
     .logo {
       display: none;
