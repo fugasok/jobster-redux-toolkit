@@ -3,7 +3,7 @@ import { toast } from 'react-toastify'
 import customFetch from '../../utils/axios'
 import {
 	addUserToLocalStorage,
-	getUserToLocalStorage,
+	getUserFromLocalStorage,
 	removeUserToLocalStorage,
 } from '../../utils/localStorage'
 import { loginUserThunk, registerUserThunk, updateUserThunk } from './userThunk'
@@ -11,7 +11,7 @@ import { loginUserThunk, registerUserThunk, updateUserThunk } from './userThunk'
 const initialState = {
 	isLoading: false,
 	isSidebarOpen: false,
-	user: getUserToLocalStorage(),
+	user: getUserFromLocalStorage(),
 }
 
 export const registerUser = createAsyncThunk(
