@@ -39,9 +39,36 @@ export const getAllJobs = createAsyncThunk(
 	}
 )
 
+export const deleteJob = createAsyncThunk(
+	'job/deleteJob',
+	async (jobId, thunkAPI) => {
+		thunkAPI.dispatch(showLoading())
+		try {
+			const resp = await customFetch.delete(`/jobs/${jobId}`, {
+				headers: {
+					authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
+				},
+			})
+			thunkAPI.dispatch(getAllJobs())
+			return resp.data
+		} catch (error) {
+			thunkAPI.dispatch(hideLoading())
+			return thunkAPI.rejectWithValue(error.response.data.msg)
+		}
+	}
+)
+
 const allJobsSlice = createSlice({
 	name: 'allJobs',
 	initialState,
+	reducers: {
+		showLoading: (state) => {
+			state.isLoading = true
+		},
+		hideLoading: (state) => {
+			state.isLoading = false
+		},
+	},
 	extraReducers: {
 		[getAllJobs.pending]: (state) => {
 			state.isLoading = true
@@ -56,5 +83,7 @@ const allJobsSlice = createSlice({
 		},
 	},
 })
+
+export const { showLoading, hideLoading } = allJobsSlice.actions
 
 export default allJobsSlice.reducer

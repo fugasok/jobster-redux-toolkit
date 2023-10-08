@@ -3,6 +3,7 @@ import { toast } from 'react-toastify'
 import customFetch from '../../utils/axios'
 import { getUserFromLocalStorage } from '../../utils/localStorage'
 import { logoutUser } from '../user/userSlice'
+import { getAllJobs, showLoading, hideLoading } from '../allJobs/allJobsSlice'
 
 const initialState = {
 	isLoading: false,
@@ -26,8 +27,8 @@ export const createJob = createAsyncThunk(
 					authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
 				},
 			})
-         thunkAPI.dispatch(clearValues())
-         return resp.data
+			thunkAPI.dispatch(clearValues())
+			return resp.data
 		} catch (error) {
 			if (error.response.status === 401) {
 				thunkAPI.dispatch(logoutUser())
@@ -46,7 +47,10 @@ const jobSlice = createSlice({
 			state[name] = value
 		},
 		clearValues: () => {
-			return {...initialState, jobLocation:getUserFromLocalStorage()?.location || '' }
+			return {
+				...initialState,
+				jobLocation: getUserFromLocalStorage()?.location || '',
+			}
 		},
 	},
 	extraReducers: {
