@@ -45,7 +45,7 @@ const Profile = () => {
 					<FormRow
 						type='text'
 						labelText='last name'
-						name='lastname'
+						name='lastName'
 						value={userData.lastName}
 						handleChange={handleChange}
 					/>
