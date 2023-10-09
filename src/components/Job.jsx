@@ -43,7 +43,7 @@ const Job = ({
 						onClick={() =>
 							dispatch(
 								setEditJob({
-									setEditJob: _id,
+									editJobId: _id,
 									position,
 									company,
 									jobLocation,
