@@ -8,7 +8,8 @@ import SearchContainer from './SearchContainer'
 import JobsContainer from './JobsContainer'
 import Job from './Job'
 import StatsContainer from './StatsContainer'
-import ChartContainer from './ChartContainer'
+import ChartsContainer from './ChartsContainer'
+import Loading from './Loading'
 
 export {
 	Logo,
@@ -21,5 +22,6 @@ export {
 	JobsContainer,
 	Job,
 	StatsContainer,
-	ChartContainer,
+	ChartsContainer,
+	Loading,
 }
