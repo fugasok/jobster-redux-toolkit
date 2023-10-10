@@ -10,7 +10,8 @@ const SearchContainer = () => {
 	const dispatch = useDispatch()
 
 	const handleSearch = (e) => {
-		dispatch(handleChange({name: e.target.name, value: e.target.value}))
+		if (isLoading) return
+		dispatch(handleChange({ name: e.target.name, value: e.target.value }))
 	}
 	const handleSubmit = (e) => {
 		e.preventDefault()
