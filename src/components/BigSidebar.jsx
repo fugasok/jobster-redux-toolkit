@@ -2,7 +2,6 @@ import NavLinks from './NavLinks'
 import Logo from '../components/Logo'
 import Wrapper from '../assets/wrappers/BigSidebar'
 import { useSelector } from 'react-redux'
-import { toggleSidebar } from '../features/user/userSlice'
 
 const BigSidebar = () => {
 	const { isSidebarOpen } = useSelector((store) => store.user)
